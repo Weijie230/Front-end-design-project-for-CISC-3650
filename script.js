@@ -46,7 +46,8 @@ card.innerHTML=`
 <button class="btn btn-danger delete-btn" onclick="deleteBook(${index})">
 Delete
 </button>
-</div>;
+</div>
+`;
 container.appendChild(card)
 })
 }
