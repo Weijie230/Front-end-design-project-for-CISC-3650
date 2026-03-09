@@ -38,7 +38,7 @@ card.innerHTML=`
 <p><b>Status:</b>
 <select onchange="changeStatus(${index},this.value)">
 <option ${book.status==="To Read"?"selected":""}>To Read</option>
-<option ${book.status==="Reading"?"selected":""}>Reading</option>
+<option ${book.status==="In the middle of reading "?"selected":""}>Reading</option>
 <option ${book.status==="Completed"?"selected":""}>Completed</option>
 </select>
 </p>
@@ -46,7 +46,7 @@ card.innerHTML=`
 <button class="btn btn-danger delete-btn" onclick="deleteBook(${index})">
 Delete
 </button>
-</div>
+</div>;
 container.appendChild(card)
 })
 }
@@ -57,7 +57,7 @@ displayBooks()
 function changeStatus(index,newStatus){
 books[index].status=newStatus
 if(newStatus==="Completed"){
-alert("🎉 Congratulations! You finished a book!")
+alert("Congratulations! You finished a book!")
 }
 displayBooks()
 }
