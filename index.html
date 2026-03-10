@@ -30,6 +30,17 @@
 </select>
 <button onclick="addBook()" class="btn btn-primary w-100">Add Book</button>
 </div>
+ <select id="filterStatus" class="form-control mb-2" onchange="filterBooks()">
+  <option value="All">All Status</option>
+  <option value="To Read">To Read</option>
+  <option value="In the middle of reading">In the middle of reading</option>
+  <option value="Completed">Completed</option>
+</select>
+<select id="sortOption" class="form-control mb-3" onchange="sortBooks()">
+  <option value="default">Sort By</option>
+  <option value="title">Title</option>
+  <option value="author">Author</option>
+</select>
 <input id="search" class="form-control mb-3" placeholder="Search by title or author" onkeyup="searchBooks()">
 <div id="bookList" class="row g-3"></div>
 </div>
