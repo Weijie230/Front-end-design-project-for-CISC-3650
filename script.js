@@ -38,7 +38,7 @@ card.innerHTML=`
 <p><b>Status:</b>
 <select onchange="changeStatus(${index},this.value)">
 <option ${book.status==="To Read"?"selected":""}>To Read</option>
-<option ${book.status==="In the middle of reading "?"selected":""}>Reading</option>
+<option ${book.status==="In the middle of reading"?"selected":""}>In the middle of reading</option>
 <option ${book.status==="Completed"?"selected":""}>Completed</option>
 </select>
 </p>
@@ -69,4 +69,28 @@ book.title.toLowerCase().includes(keyword)||
 book.author.toLowerCase().includes(keyword)
 )
 displayBooks(filtered)
+}
+function filterBooks() {
+  let selectedStatus = document.getElementById("filterStatus").value;
+
+  if (selectedStatus === "All") {
+    displayBooks(books);
+    return;
+  }
+
+  let filtered = books.filter(book => book.status === selectedStatus);
+  displayBooks(filtered);
+}
+
+function sortBooks() {
+  let option = document.getElementById("sortOption").value;
+  let sortedBooks = [...books];
+
+  if (option === "title") {
+    sortedBooks.sort((a, b) => a.title.localeCompare(b.title));
+  } else if (option === "author") {
+    sortedBooks.sort((a, b) => a.author.localeCompare(b.author));
+  }
+
+  displayBooks(sortedBooks);
 }
